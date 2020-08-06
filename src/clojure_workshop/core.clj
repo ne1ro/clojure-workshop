@@ -1,6 +1,8 @@
 (ns clojure-workshop.core
   "Core module for a system"
-  (:require [clojure.string :refer [upper-case]]))
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]))
 
-(upper-case "Hello world")
-(-> 2 (+ 3) (* 100 200) (/ 0))
+(defroutes app
+  (GET "/" [] "<h1>Kek Pek</h1>")
+  (route/not-found "<h1>Page not found</h1>"))
